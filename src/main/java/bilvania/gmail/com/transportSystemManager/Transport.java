@@ -1,6 +1,6 @@
 package bilvania.gmail.com.transportSystemManager;
 
-abstract public class Transport extends TransportFactory implements Moveable {
+abstract public class Transport  implements Moveable {
     protected String model;
     protected int year;
 

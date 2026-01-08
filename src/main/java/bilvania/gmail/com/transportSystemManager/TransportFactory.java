@@ -1,3 +1,4 @@
+/*
 package bilvania.gmail.com.transportSystemManager;
 
 import java.util.Scanner;
@@ -23,6 +24,7 @@ public class TransportFactory {
 
                 break;
             case BUS:
+                scanner.nextLine();
                 System.out.println("Please enter model of bus");
                 model = scanner.nextLine();
                 System.out.println("Please enter year: ");
@@ -33,6 +35,7 @@ public class TransportFactory {
                 break;
 
             case BIKE:
+                scanner.nextLine();
                 System.out.println("Please enter model of bike: ");
                 model = scanner.nextLine();
                 System.out.println("Please enter year: ");
@@ -43,6 +46,7 @@ public class TransportFactory {
                 break;
 
             case SCOOTER:
+                scanner.nextLine();
                 System.out.println("Please enter model of skooter: ");
                 model = scanner.nextLine();
                 System.out.println("Please enter year: ");
@@ -61,3 +65,4 @@ public class TransportFactory {
     }
 }
 
+*/

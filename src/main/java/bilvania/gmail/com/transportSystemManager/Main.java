@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    static void main(String[] args) {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         List<Transport> transports = new ArrayList<>();
 
@@ -18,57 +18,31 @@ public class Main {
                     1)Car
                     2)Bus
                     3)Bike
-                    4)Skooter
+                    4)Scooter
                     5)Exit
                     """);
 
 
             int choice = sc.nextInt();
 
-            switch (choice) {
-                case 1:
-                    Transport car = TransportFactory.createTransport(TransportType.CAR, sc);
-                    if (car != null) {
-                        transports.add(car);
-                    } else {
-                        System.out.println("Invalid transport type");
-                        i--;
-                    }
-                    break;
-                case 2:
-                    Transport bus = TransportFactory.createTransport(TransportType.BUS, sc);
-                    if (bus != null) {
-                        transports.add(bus);
-                    } else {
-                        System.out.println("Invalid transport type");
-                        i--;
-                    }
-                    break;
-                case 3:
-                    Transport bike = TransportFactory.createTransport(TransportType.BIKE, sc);
-                    if (bike != null) {
-                        transports.add(bike);
-                    } else {
-                        System.out.println("Invalid transport type");
-                        i--;
-                    }
-                    break;
-                case 4:
-                    Transport scooter = TransportFactory.createTransport(TransportType.SCOOTER, sc);
-                    if (scooter != null) {
-                        transports.add(scooter);
-                    } else {
-                        System.out.println("Invalid transport type");
-                        i--;
-                    }
-                    break;
-                case 5:
-                    System.out.println("Good Bye!");
-                    return;
-                default:
-                    System.out.println("Invalid choice");
-                    i--;
+            TransportType type= TransportType.fromId(choice);
+
+            if(choice==5){
+                System.out.println("Good bye :)");
+                return;
             }
+
+            if (type==null){
+                i--;
+                System.out.println("Invalid transport type!");
+            }else{
+                Transport transport = type.create(sc);
+                if (transport!=null) {
+                    transports.add(transport);
+                }
+            }
+
+
         }
         System.out.println("--------TOTAL INFORMATION-------");
         for (Transport transport : transports) {
